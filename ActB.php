@@ -6,6 +6,11 @@
     <title>Registration Details</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .hr{
+            padding:50px;
+        }
+    </style>
 </head>
 <body class="bg-light">
 
@@ -16,24 +21,21 @@
         </div>
         <div class="card-body">
             <?php
-            if ($_SERVER["REQUEST METHOD"] == "POST") {
+            if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $a = $_POST['fullname'];
                 $b = $_POST['days'];
-                $c = $_POST['daily'];
+                $c = $_POST['number'];
                 $d = $_POST['cash'];
 
                 $gp = $b * $c;
-                $tax = 0.2;
-                $sss = 1.5;
+                $tax = $gp * 0.02;
+                $sss = $gp * 0.015;
                 $pagibig = 50;
 
-                $ded = ($tax + $sss + $pagibig) - $gp;
-                $tot = $ded - $gp;
+                $ded = $tax + $sss + $pagibig + $d;
 
-                
+                $tot = $gp - $ded;
 
-
-                
                
             } else {
                 echo "<div class ='alert alert-danger'> NO DATA RECEIVED.</div>";
@@ -47,22 +49,23 @@
            
             <ul class="list-group">
                 <li class="list-group-item"><strong>Employee Name:</strong> <?=$a;?>  </li>
-                <li class="list-group-item"><strong>Total Days Worked</strong> <?=$b;?>  </li>
-                <li class="list-group-item"><strong>Daily Rate</strong> <?=$c;?>  </li>
+                <li class="list-group-item"><strong>Total Days Worked:</strong> <?=$b;?>  </li>
+                <li class="list-group-item"><strong>Daily Rate: ₱</strong> <?=$c;?>  </li>
                 <hr>
-                <li class="list-group-item"><strong>Grosspay:</strong> <?=$gp;?>  </li>
-                <li class="list-group-item"><strong>Tax (2%):</strong> <?=$tax;?>  </li>
-                <li class="list-group-item"><strong>SSS (1.5%):</strong> <?=$sss;?>  </li>
-                <li class="list-group-item"><strong>Pag_IBIG:</strong> <?=$pagibig;?>  </li>
-                <li class="list-group-item"><strong>:</strong> <?=$d;?>  </li>
+                <li class="list-group-item"><strong>Grosspay: ₱</strong> <?=$gp;?>  </li>
+                <li class="list-group-item"><strong>Tax (2%): ₱</strong> <?=$tax;?>  </li>
+                <li class="list-group-item"><strong>SSS (1.5%): ₱</strong> <?=$sss;?>  </li>
+                <li class="list-group-item"><strong>Pag_IBIG: ₱</strong> <?=$pagibig;?>  </li>
+                <li class="list-group-item"><strong>Cash Advance: ₱</strong> <?=$d;?>  </li>
                 <hr>
-                <li class="list-group-item"><strong>Grosspay:</strong> <?=$ded;?>  </li>
-                <li class="list-group-item"><strong>Grosspay:</strong> <?=$gp;?>  </li>
+                <li class="list-group-item"><strong>Total Deduction: ₱</strong> <?=$ded;?>  </li>
+                <li class="list-group-item"><strong>Net Pay: ₱</strong> <?=$tot;?>  </li>
                 
             </ul>
 
-            <div class="mt-4">
-                <a href="index.php" class="btn btn-primary">Register Another Student</a>
+            <div class="text-center mt-4">
+                <a href="ActA.php" class="btn btn-primary" >Back</a>
+                <button onclick="window.print()">Print Payslip</button>
             </div>
         </div>
     </div>

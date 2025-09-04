@@ -12,7 +12,7 @@
 <div class="container mt-5">
     <div class="card shadow-lg">
         <div class="card-header bg-primary text-white">
-            <h4 class="mb-0">Student Registration</h4>
+            <h4 class="mb-0">Payroll Calculator</h4>
         </div>
         <div class="card-body">
             <form action="ActB.php" method="POST">
@@ -25,19 +25,19 @@
                 <!-- total days of work -->
                 <div class="mb-3">
                     <label for="email" class="form-label">Total Days of Work</label>
-                    <input type="number" name="days" id="days" class="form-control" placeholder="Enter your days" required>
+                    <input type="number" name="days" id="" class="form-control" placeholder="Enter your days" required>
                 </div>
 
                 <!-- daily rate -->
                 <div class="mb-3">
                     <label for="address" class="form-label">Daily Rate</label>
-                    <textarea name="number" id="daily" class="form-control" rows="2" placeholder="Enter daily rate" required></textarea>
+                    <input name="number" id="" class="form-control"  placeholder="Enter daily rate" required></textarea>
                 </div>
 
                 <!-- cash advance -->
                 <div class="mb-3">
                     <label for="birthdate" class="form-label">Cash advance</label>
-                    <input type="number" name="cash" id="birthdate" class="form-control" required>
+                    <input type="number" name="cash" id="" class="form-control" required>
                 </div>
 
               
@@ -45,7 +45,7 @@
                 
 
                 <!-- Submit Button -->
-                <div class="text-end">
+                <div class="text-center text-end">
                     <button type="submit" class="btn btn-success">Register</button>
                 </div>
             </form>
